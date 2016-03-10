@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "XMLDictionary.h"
-#import "URLManager.h"
+#import "CDURLManager.h"
+#import "XMLReader.h"
+#import "AFNetworking.h"
+
+
 @interface ViewController ()
 
 @end
@@ -18,15 +21,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    NSString *adress = [CDURLManager obterDeputados];
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:adress]];
     
-    NSNumber *idDeputado = [NSNumber numberWithInt:141428];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
     
-    NSData *partidosPorBloco = [NSData dataWithContentsOfURL:[NSURL URLWithString: [URLManager obterPartidosBlocoCDPorID:@"" comNumLegislatura:@""]]];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes =  [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/xml"];
+    
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        NSError *parseError = nil;
+
+        NSDictionary *xmlDictionary = [XMLReader dictionaryForXMLData:responseObject error:&parseError];
+
+        NSLog(@"Response string: %@",[xmlDictionary objectForKey:@"deputados"]);
+    }];
+    [task resume];
     
     
-    NSDictionary *dic = [NSDictionary dictionaryWithXMLData:partidosPorBloco];
     
-    NSLog(@"%@",dic);
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

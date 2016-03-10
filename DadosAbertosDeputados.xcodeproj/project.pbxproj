@@ -7,19 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B11706F21C88E53100B6F4AF /* URLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B11706F11C88E53100B6F4AF /* URLManager.m */; };
+		55AB392A943272AB684401AA /* Pods_DadosAbertosDeputados.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94FCB54B3AA2CF6A49D0EE2 /* Pods_DadosAbertosDeputados.framework */; };
+		B11706F21C88E53100B6F4AF /* CDURLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B11706F11C88E53100B6F4AF /* CDURLManager.m */; };
+		B1DE27701C91D0880084B517 /* AEXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1DE276F1C91D0880084B517 /* AEXML.framework */; };
+		B1DE27731C91D1950084B517 /* CDDeputado.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DE27721C91D1950084B517 /* CDDeputado.m */; };
+		B1DE27761C91D1A30084B517 /* CDPartido.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DE27751C91D1A30084B517 /* CDPartido.m */; };
+		B1DE27791C91D1C20084B517 /* CDProposicao.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DE27781C91D1C20084B517 /* CDProposicao.m */; };
+		B1DE277C1C91FC4B0084B517 /* CDVotacao.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DE277B1C91FC4B0084B517 /* CDVotacao.m */; };
+		B1DE277F1C91FC910084B517 /* CDDeputadoVotacao.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DE277E1C91FC910084B517 /* CDDeputadoVotacao.m */; };
+		B1DE27831C920B030084B517 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DE27821C920B030084B517 /* XMLReader.m */; };
 		B1FA41D61C88AB58001C51BC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FA41D51C88AB58001C51BC /* main.m */; };
 		B1FA41D91C88AB58001C51BC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FA41D81C88AB58001C51BC /* AppDelegate.m */; };
 		B1FA41DC1C88AB58001C51BC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FA41DB1C88AB58001C51BC /* ViewController.m */; };
 		B1FA41DF1C88AB58001C51BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA41DD1C88AB58001C51BC /* Main.storyboard */; };
 		B1FA41E11C88AB58001C51BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1FA41E01C88AB58001C51BC /* Assets.xcassets */; };
 		B1FA41E41C88AB58001C51BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FA41E21C88AB58001C51BC /* LaunchScreen.storyboard */; };
-		B1FA41EE1C88ABA1001C51BC /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FA41ED1C88ABA1001C51BC /* XMLDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B11706F01C88E53100B6F4AF /* URLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLManager.h; sourceTree = "<group>"; };
-		B11706F11C88E53100B6F4AF /* URLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLManager.m; sourceTree = "<group>"; };
+		55CE7B979459F9599588ACD8 /* Pods-DadosAbertosDeputados.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DadosAbertosDeputados.release.xcconfig"; path = "Pods/Target Support Files/Pods-DadosAbertosDeputados/Pods-DadosAbertosDeputados.release.xcconfig"; sourceTree = "<group>"; };
+		8B25637E4EEC965B0DAF29EE /* Pods-DadosAbertosDeputados.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DadosAbertosDeputados.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DadosAbertosDeputados/Pods-DadosAbertosDeputados.debug.xcconfig"; sourceTree = "<group>"; };
+		B11706F01C88E53100B6F4AF /* CDURLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDURLManager.h; sourceTree = "<group>"; };
+		B11706F11C88E53100B6F4AF /* CDURLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDURLManager.m; sourceTree = "<group>"; };
+		B1DE276A1C91CDB70084B517 /* AEXML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AEXML.framework; path = "Pods/../build/Debug-iphoneos/AEXML.framework"; sourceTree = "<group>"; };
+		B1DE276F1C91D0880084B517 /* AEXML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AEXML.framework; path = "Pods/../build/Debug-iphoneos/AEXML.framework"; sourceTree = "<group>"; };
+		B1DE27711C91D1950084B517 /* CDDeputado.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDDeputado.h; sourceTree = "<group>"; };
+		B1DE27721C91D1950084B517 /* CDDeputado.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDDeputado.m; sourceTree = "<group>"; };
+		B1DE27741C91D1A30084B517 /* CDPartido.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPartido.h; sourceTree = "<group>"; };
+		B1DE27751C91D1A30084B517 /* CDPartido.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPartido.m; sourceTree = "<group>"; };
+		B1DE27771C91D1C20084B517 /* CDProposicao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDProposicao.h; sourceTree = "<group>"; };
+		B1DE27781C91D1C20084B517 /* CDProposicao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProposicao.m; sourceTree = "<group>"; };
+		B1DE277A1C91FC4B0084B517 /* CDVotacao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVotacao.h; sourceTree = "<group>"; };
+		B1DE277B1C91FC4B0084B517 /* CDVotacao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVotacao.m; sourceTree = "<group>"; };
+		B1DE277D1C91FC910084B517 /* CDDeputadoVotacao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDDeputadoVotacao.h; sourceTree = "<group>"; };
+		B1DE277E1C91FC910084B517 /* CDDeputadoVotacao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDDeputadoVotacao.m; sourceTree = "<group>"; };
+		B1DE27811C920B030084B517 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		B1DE27821C920B030084B517 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		B1DE27841C9211DF0084B517 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		B1FA41D11C88AB58001C51BC /* DadosAbertosDeputados.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DadosAbertosDeputados.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1FA41D51C88AB58001C51BC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B1FA41D71C88AB58001C51BC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -30,8 +54,7 @@
 		B1FA41E01C88AB58001C51BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1FA41E31C88AB58001C51BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1FA41E51C88AB58001C51BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1FA41EC1C88ABA1001C51BC /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
-		B1FA41ED1C88ABA1001C51BC /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
+		D94FCB54B3AA2CF6A49D0EE2 /* Pods_DadosAbertosDeputados.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DadosAbertosDeputados.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,26 +62,58 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1DE27701C91D0880084B517 /* AEXML.framework in Frameworks */,
+				55AB392A943272AB684401AA /* Pods_DadosAbertosDeputados.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48EF3C0CCAA556C3D9ECCE0A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B25637E4EEC965B0DAF29EE /* Pods-DadosAbertosDeputados.debug.xcconfig */,
+				55CE7B979459F9599588ACD8 /* Pods-DadosAbertosDeputados.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B11706EF1C88E53100B6F4AF /* DadosAbertosCD */ = {
 			isa = PBXGroup;
 			children = (
-				B11706F01C88E53100B6F4AF /* URLManager.h */,
-				B11706F11C88E53100B6F4AF /* URLManager.m */,
+				B11706F01C88E53100B6F4AF /* CDURLManager.h */,
+				B11706F11C88E53100B6F4AF /* CDURLManager.m */,
+				B1DE27711C91D1950084B517 /* CDDeputado.h */,
+				B1DE27721C91D1950084B517 /* CDDeputado.m */,
+				B1DE27741C91D1A30084B517 /* CDPartido.h */,
+				B1DE27751C91D1A30084B517 /* CDPartido.m */,
+				B1DE27771C91D1C20084B517 /* CDProposicao.h */,
+				B1DE27781C91D1C20084B517 /* CDProposicao.m */,
+				B1DE277A1C91FC4B0084B517 /* CDVotacao.h */,
+				B1DE277B1C91FC4B0084B517 /* CDVotacao.m */,
+				B1DE277D1C91FC910084B517 /* CDDeputadoVotacao.h */,
+				B1DE277E1C91FC910084B517 /* CDDeputadoVotacao.m */,
 			);
 			path = DadosAbertosCD;
 			sourceTree = SOURCE_ROOT;
+		};
+		B1DE27801C920AF60084B517 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				B1DE27811C920B030084B517 /* XMLReader.h */,
+				B1DE27821C920B030084B517 /* XMLReader.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
 		};
 		B1FA41C81C88AB58001C51BC = {
 			isa = PBXGroup;
 			children = (
 				B1FA41D31C88AB58001C51BC /* DadosAbertosDeputados */,
 				B1FA41D21C88AB58001C51BC /* Products */,
+				48EF3C0CCAA556C3D9ECCE0A /* Pods */,
+				DB3B84519C99265E1177A04A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,8 +128,8 @@
 		B1FA41D31C88AB58001C51BC /* DadosAbertosDeputados */ = {
 			isa = PBXGroup;
 			children = (
+				B1DE27801C920AF60084B517 /* Util */,
 				B11706EF1C88E53100B6F4AF /* DadosAbertosCD */,
-				B1FA41EB1C88ABA1001C51BC /* XMLDictionary */,
 				B1FA41D71C88AB58001C51BC /* AppDelegate.h */,
 				B1FA41D81C88AB58001C51BC /* AppDelegate.m */,
 				B1FA41DA1C88AB58001C51BC /* ViewController.h */,
@@ -96,13 +151,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B1FA41EB1C88ABA1001C51BC /* XMLDictionary */ = {
+		DB3B84519C99265E1177A04A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B1FA41EC1C88ABA1001C51BC /* XMLDictionary.h */,
-				B1FA41ED1C88ABA1001C51BC /* XMLDictionary.m */,
+				B1DE27841C9211DF0084B517 /* Alamofire.framework */,
+				B1DE276F1C91D0880084B517 /* AEXML.framework */,
+				B1DE276A1C91CDB70084B517 /* AEXML.framework */,
+				D94FCB54B3AA2CF6A49D0EE2 /* Pods_DadosAbertosDeputados.framework */,
 			);
-			path = XMLDictionary;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,9 +169,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1FA41E81C88AB58001C51BC /* Build configuration list for PBXNativeTarget "DadosAbertosDeputados" */;
 			buildPhases = (
+				74A5124E8DD8EA94135B05F2 /* Check Pods Manifest.lock */,
 				B1FA41CD1C88AB58001C51BC /* Sources */,
 				B1FA41CE1C88AB58001C51BC /* Frameworks */,
 				B1FA41CF1C88AB58001C51BC /* Resources */,
+				448DB873CF031C26706B9E28 /* Embed Pods Frameworks */,
+				11D82EA613B3B4E1BD0A46CD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -171,16 +231,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		11D82EA613B3B4E1BD0A46CD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DadosAbertosDeputados/Pods-DadosAbertosDeputados-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		448DB873CF031C26706B9E28 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DadosAbertosDeputados/Pods-DadosAbertosDeputados-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74A5124E8DD8EA94135B05F2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B1FA41CD1C88AB58001C51BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1DE27761C91D1A30084B517 /* CDPartido.m in Sources */,
 				B1FA41DC1C88AB58001C51BC /* ViewController.m in Sources */,
-				B1FA41EE1C88ABA1001C51BC /* XMLDictionary.m in Sources */,
+				B1DE27831C920B030084B517 /* XMLReader.m in Sources */,
+				B1DE277C1C91FC4B0084B517 /* CDVotacao.m in Sources */,
 				B1FA41D91C88AB58001C51BC /* AppDelegate.m in Sources */,
+				B1DE27731C91D1950084B517 /* CDDeputado.m in Sources */,
+				B1DE277F1C91FC910084B517 /* CDDeputadoVotacao.m in Sources */,
+				B1DE27791C91D1C20084B517 /* CDProposicao.m in Sources */,
 				B1FA41D61C88AB58001C51BC /* main.m in Sources */,
-				B11706F21C88E53100B6F4AF /* URLManager.m in Sources */,
+				B11706F21C88E53100B6F4AF /* CDURLManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,8 +401,13 @@
 		};
 		B1FA41E91C88AB58001C51BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B25637E4EEC965B0DAF29EE /* Pods-DadosAbertosDeputados.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = DadosAbertosDeputados/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DadosAbertosBrasil.DadosAbertosDeputados;
@@ -299,8 +417,13 @@
 		};
 		B1FA41EA1C88AB58001C51BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55CE7B979459F9599588ACD8 /* Pods-DadosAbertosDeputados.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = DadosAbertosDeputados/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DadosAbertosBrasil.DadosAbertosDeputados;
