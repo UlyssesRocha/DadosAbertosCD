@@ -11,30 +11,37 @@
 @interface CDDeputado : NSObject
 
 #pragma mark Basic Information
-@property NSNumber *ideCadastro;
-@property NSNumber *matricula;
-@property NSNumber *idParlamentar;
+@property (nonatomic) NSNumber *ideCadastro;
+@property (nonatomic) NSNumber *matricula;
+@property (nonatomic) NSNumber *idParlamentar;
 
-@property NSString *condicao;
-@property NSString *nome;
-@property NSString *nomeParlamentar;
-@property NSString *urlFoto;
+@property (nonatomic) NSString *condicao;
+@property (nonatomic) NSString *nome;
+@property (nonatomic) NSString *nomeParlamentar;
+@property (nonatomic) NSString *urlFoto;
 
-@property NSString *partido;
+@property (nonatomic) NSString *partido;
 
-@property NSString *gabinete;
-@property NSString *anexo;
+@property (nonatomic) NSString *gabinete;
+@property (nonatomic) NSString *anexo;
 
 //Contacts
-@property NSString *uf;
-@property NSString *fone;
-@property NSString *email;
+@property (nonatomic) NSString *uf;
+@property (nonatomic) NSString *fone;
+@property (nonatomic) NSString *email;
 
 #pragma mark Details
-@property NSDate *dataNascimento;
-@property NSString *situacaoNaLegislaturaAtual;
-@property NSString *ufRepresentacaoAtual;
-@property NSString *nomeProfissao;
+@property (nonatomic) NSDate *dataNascimento;
+@property (nonatomic) NSString *situacaoNaLegislaturaAtual;
+@property (nonatomic) NSString *ufRepresentacaoAtual;
+@property (nonatomic) NSString *nomeProfissao;
+
+
+
+- (instancetype)initWithBasicInfoDictionary:(NSDictionary*)dictionary;
+
++ (void)loadDeputados:(void(^)(NSArray* response))completionHandler;
+
 
 
 @end

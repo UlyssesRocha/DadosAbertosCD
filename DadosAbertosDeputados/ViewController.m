@@ -10,7 +10,7 @@
 #import "CDURLManager.h"
 #import "XMLReader.h"
 #import "AFNetworking.h"
-
+#import "CDDeputado.h"
 
 @interface ViewController ()
 
@@ -21,26 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    NSString *adress = [CDURLManager obterDeputados];
-
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:adress]];
     
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
     
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes =  [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/xml"];
-    
-    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-        NSError *parseError = nil;
-
-        NSDictionary *xmlDictionary = [XMLReader dictionaryForXMLData:responseObject error:&parseError];
-
-        NSLog(@"Response string: %@",[xmlDictionary objectForKey:@"deputados"]);
+    [CDDeputado loadDeputados:^(NSArray *response) {
+        
+        NSLog(@"%@",((CDDeputado *)[response objectAtIndex:0]).nomeParlamentar);
     }];
-    [task resume];
-    
-    
-    
     
     
     
