@@ -21,6 +21,7 @@
 @property NSString *tema;
 @property NSString *ementa;
 @property NSString *explicacaoEmenta;
+@property NSString *indexacao;
 
 @property NSString *regimeTramitacao;
 @property NSString *situacao;
@@ -33,5 +34,7 @@
 
 @property NSArray *votacoes;
 
+- (instancetype)initWithCodProposicao:(NSNumber*)codProposicao;
+-(void)loadPreposicao:(void(^)(void))completionHandler;
 
 @end

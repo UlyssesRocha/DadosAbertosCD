@@ -11,6 +11,7 @@
 #import "XMLReader.h"
 #import "AFNetworking.h"
 #import "CDDeputado.h"
+#import "CDProposicao.h"
 
 @interface ViewController ()
 
@@ -22,15 +23,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    UIImageView *testImageView;
+//    UIImageView *testImageView;
+//    
+//    [CDDeputado loadDeputados:^(NSArray *response) {
+//        NSLog(@"%@",((CDDeputado *)[response objectAtIndex:0]).nomeParlamentar);
+//        
+//        [(CDDeputado* )[response objectAtIndex:66]loadPhoto:self.depImage];
+//    }];
     
-    [CDDeputado loadDeputados:^(NSArray *response) {
-        NSLog(@"%@",((CDDeputado *)[response objectAtIndex:0]).nomeParlamentar);
-        
-        [(CDDeputado* )[response objectAtIndex:66]loadPhoto:self.depImage];
+    
+    CDProposicao *testProposicao = [[CDProposicao alloc]initWithCodProposicao:[NSNumber numberWithInt:2077084]];
+    
+    [testProposicao loadPreposicao:^{
+        NSLog(@"fim");
+
     }];
     
-    NSLog(@"fim");
     
 }
 
