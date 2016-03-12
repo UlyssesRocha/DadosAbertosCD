@@ -22,13 +22,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    UIImageView *testImageView;
     
     [CDDeputado loadDeputados:^(NSArray *response) {
-        
         NSLog(@"%@",((CDDeputado *)[response objectAtIndex:0]).nomeParlamentar);
+        
+        [(CDDeputado* )[response objectAtIndex:66]loadPhoto:self.depImage];
     }];
     
-    
+    NSLog(@"fim");
     
 }
 

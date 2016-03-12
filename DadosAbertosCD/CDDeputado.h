@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface CDDeputado : NSObject
 
@@ -36,9 +37,11 @@
 @property (nonatomic) NSString *ufRepresentacaoAtual;
 @property (nonatomic) NSString *nomeProfissao;
 
+@property (nonatomic) NSArray *presencas;
 
 
 - (instancetype)initWithBasicInfoDictionary:(NSDictionary*)dictionary;
+- (void)loadPhoto:(UIImageView*)photo;
 
 + (void)loadDeputados:(void(^)(NSArray* response))completionHandler;
 

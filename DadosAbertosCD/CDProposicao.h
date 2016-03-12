@@ -12,16 +12,26 @@
 
 @property NSNumber *idProposicao;
 @property NSString *nome;
-@property NSString *tipoProposicao;
+
+@property NSString *sigla;
 @property NSNumber *numero;
 @property NSNumber *ano;
 
+@property NSString *tipoProposicao;
+@property NSString *tema;
 @property NSString *ementa;
 @property NSString *explicacaoEmenta;
+
+@property NSString *regimeTramitacao;
+@property NSString *situacao;
+
+@property NSString *urlInteiroTeor;
 
 @property NSNumber *qtdeAutores;
 
 @property NSNumber *idAutor;
+
+@property NSArray *votacoes;
 
 
 @end

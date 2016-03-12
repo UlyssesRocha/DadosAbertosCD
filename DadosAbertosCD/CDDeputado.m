@@ -10,9 +10,11 @@
 #import "CDURLManager.h"
 #import "XMLReader.h"
 #import "AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation CDDeputado
 
+#pragma MARK Class Methods
 + (void)loadDeputados:(void(^)(NSArray* response))completionHandler{
     
     if (completionHandler == NULL) {
@@ -49,10 +51,9 @@
     }];
     
     [task resume];
-    
 }
 
-
+#pragma MARK Instance Methods
 - (instancetype) initWithBasicInfoDictionary:(NSDictionary*)dictionary{
     self = [super init];
     if(self) {
@@ -77,7 +78,12 @@
 }
 
 
-
+- (void)loadPhoto:(UIImageView*)photo{
+    if (self.urlFoto){
+        NSURL *urlImage = [[NSURL alloc] initWithString:self.urlFoto];
+        [photo setImageWithURL:urlImage];
+    }
+}
 
 
 @end
