@@ -30,17 +30,28 @@
 -(void)loadVotacoes:(void(^)(void))completionHandler{
     [self loadVotacoesFromServer:^(NSArray *response) {
         
-        NSMutableArray *votacoes = [[NSMutableArray alloc] init];
         if (response){
+            
+            NSMutableArray *votacoes = [[NSMutableArray alloc] init];
+
             for (id votacao in response) {
                 /* -!! WARNING !!-
                  * Is import double check if is a NSDictionary
                  * do NOT remove this check, or it may fail
                  */
                 if ([votacao isKindOfClass:[NSDictionary class]]) {
-                    CDVotacao *vot = [[CDVotacao alloc]initWithDictionary:votacao];
+                    
+                    CDVotacao *votacaoSessao = [[CDVotacao alloc]initWithDictionary:votacao];
+                    
+                    if (votacaoSessao){
+                        [votacoes addObject:votacaoSessao];
+                    }
+                    
                 }
             }
+            
+            self.votacoes = [[NSArray alloc]initWithArray:votacoes];
+            
             completionHandler();
         }
     }];

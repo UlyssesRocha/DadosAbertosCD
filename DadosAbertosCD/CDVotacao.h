@@ -19,6 +19,7 @@
 @property NSNumber *votoSim;
 @property NSNumber *votoNao;
 @property NSNumber *votoAbstencao;
+@property NSNumber *votoObstrucao;
 @property NSNumber *votoTotal;
 
 @property NSArray *votoDeputados;
