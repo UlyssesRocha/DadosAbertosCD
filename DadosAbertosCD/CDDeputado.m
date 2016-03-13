@@ -86,4 +86,53 @@
 }
 
 
+- (void)loadPresencasInTheLastSemester:(void(^)(void))completionHandler{
+    
+    NSDate *endDate = [[NSDate alloc] init]; //today
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
+    [offsetComponents setMonth:-6]; // 6 months
+    
+    NSDate *beginDate = [calendar dateByAddingComponents:offsetComponents toDate:endDate options:0];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+    
+    NSString *inicioIntervalo = [dateFormatter stringFromDate:beginDate];
+    NSString *fimIntervalo = [dateFormatter stringFromDate:endDate];
+    NSString *matricula = [NSString stringWithFormat:@"%@",self.matricula];
+    
+    //Begin of request
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[CDURLManager listarPresencasParlamentarComDataInicio:inicioIntervalo comDataFim:fimIntervalo comNumeroMatriculaParlamentar:matricula]]];
+    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
+    
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes =  [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/xml"];
+    
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        
+        //Parse XML Data to Dictionary
+        NSError *parseError = nil;
+        NSDictionary *xmlDictionary = [XMLReader dictionaryForXMLData:responseObject error:&parseError];
+        if (parseError != NULL) {
+            return;
+        }
+        
+        //Parse to array of Sessoes
+        NSArray *dias = [[[[xmlDictionary objectForKey:@"parlamentar"] objectForKey:@"diasDeSessoes2"] objectForKey:@"dia"] allObjects];
+        if (dias){
+            self.presencas = [[NSArray alloc] initWithArray:dias];
+        }
+        
+        completionHandler();
+    }];
+    
+    [task resume];
+
+
+    
+}
+
+
 @end

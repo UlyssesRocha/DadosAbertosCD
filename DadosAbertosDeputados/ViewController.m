@@ -23,10 +23,12 @@
     [super viewDidLoad];
 
 //    UIImageView *testImageView;
-//    [CDDeputado loadDeputados:^(NSArray *response) {
-//        NSLog(@"%@",((CDDeputado *)[response objectAtIndex:0]).nomeParlamentar);
-//        [(CDDeputado* )[response objectAtIndex:66]loadPhoto:self.depImage];
-//    }];
+    [CDDeputado loadDeputados:^(NSArray *response) {
+        NSLog(@"%@",((CDDeputado *)[response objectAtIndex:0]).nomeParlamentar);
+        [(CDDeputado* )[response objectAtIndex:66] loadPresencasInTheLastSemester:^{
+            NSLog(@"%@",[response objectAtIndex:66] );
+        }];
+    }];
     
     
     CDProposicao *testProposicao = [[CDProposicao alloc]initWithCodProposicao:[NSNumber numberWithInt:2078488]];

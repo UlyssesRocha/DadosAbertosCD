@@ -69,7 +69,7 @@
     self.votoAbstencao = [NSNumber numberWithUnsignedInteger:abstencao];
     self.votoObstrucao = [NSNumber numberWithUnsignedInteger:obstrucao];
     
-    //obstrucao votes does not count in the "oficial total numbers"
+    //"obstrucao votes" does not count in the "oficial total numbers"
     self.votoTotal = [NSNumber numberWithUnsignedInteger:(sim + nao + abstencao)];
     
  }

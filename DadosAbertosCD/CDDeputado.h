@@ -42,6 +42,7 @@
 
 - (instancetype)initWithBasicInfoDictionary:(NSDictionary*)dictionary;
 - (void)loadPhoto:(UIImageView*)photo;
+- (void)loadPresencasInTheLastSemester:(void(^)(void))completionHandler;
 
 + (void)loadDeputados:(void(^)(NSArray* response))completionHandler;
 
