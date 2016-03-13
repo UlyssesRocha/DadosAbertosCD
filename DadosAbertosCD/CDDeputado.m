@@ -86,12 +86,12 @@
 }
 
 
-- (void)loadPresencasInTheLastSemester:(void(^)(void))completionHandler{
-    
+- (void)loadPresencasInTheLast:(NSUInteger)months withCompletionHandler:(void(^)(void))completionHandler{
+
     NSDate *endDate = [[NSDate alloc] init]; //today
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
-    [offsetComponents setMonth:-6]; // 6 months
+    [offsetComponents setMonth:-months]; // n Months
     
     NSDate *beginDate = [calendar dateByAddingComponents:offsetComponents toDate:endDate options:0];
     
@@ -119,7 +119,7 @@
             return;
         }
         
-        //Parse to array of Sessoes
+        //Get Sessoes
         NSArray *dias = [[[[xmlDictionary objectForKey:@"parlamentar"] objectForKey:@"diasDeSessoes2"] objectForKey:@"dia"] allObjects];
         if (dias){
             self.presencas = [[NSArray alloc] initWithArray:dias];
