@@ -81,7 +81,12 @@
             
             self.urlInteiroTeor = [[response objectForKey:@"LinkInteiroTeor"] objectForKey:@"text"];
             
-            self.idAutor = [[response objectForKey:@"ideCadastro"] objectForKey:@"text"];
+            self.nomeAutor = [[response objectForKey:@"Autor"] objectForKey:@"text"];
+            
+            NSString *localIdAutor = [[response objectForKey:@"ideCadastro"] objectForKey:@"text"];
+            if (localIdAutor){ //May be NULL
+                self.idAutor = [formater numberFromString:localIdAutor];
+            }
             
             completionHandler();
         }

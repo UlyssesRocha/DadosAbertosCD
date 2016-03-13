@@ -31,6 +31,8 @@
 @property NSNumber *qtdeAutores;
 
 @property NSNumber *idAutor;
+@property NSString *nomeAutor;
+
 
 @property NSArray *votacoes;
 
