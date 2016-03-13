@@ -10,10 +10,11 @@
 #import "AFNetworking.h"
 #import "CDURLManager.h"
 #import "XMLReader.h"
+#import "CDVotacao.h"
 
-
-@interface CDProposicao () //note the empty category name
-- (void)loadFromServer:(void(^)(NSDictionary* response))completionHandler;
+@interface CDProposicao () 
+- (void)loadPreposicaoFromServer:(void(^)(NSDictionary* response))completionHandler;
+- (void)loadVotacoesFromServer:(void(^)(NSArray* response))completionHandler;
 @end
 
 @implementation CDProposicao
@@ -26,8 +27,27 @@
     return self;
 }
 
--(void)loadPreposicao:(void(^)(void))completionHandler{
-    [self loadFromServer:^(NSDictionary *response) {
+-(void)loadVotacoes:(void(^)(void))completionHandler{
+    [self loadVotacoesFromServer:^(NSArray *response) {
+        
+        NSMutableArray *votacoes = [[NSMutableArray alloc] init];
+        if (response){
+            for (id votacao in response) {
+                /* -!! WARNING !!-
+                 * Is import double check if is a NSDictionary
+                 * do NOT remove this check, or it may fail
+                 */
+                if ([votacao isKindOfClass:[NSDictionary class]]) {
+                    CDVotacao *vot = [[CDVotacao alloc]initWithDictionary:votacao];
+                }
+            }
+            completionHandler();
+        }
+    }];
+}
+
+-(void)loadProposicao:(void(^)(void))completionHandler{
+    [self loadPreposicaoFromServer:^(NSDictionary *response) {
         if (response){
             //Number Formatter to convert String to Number.
             NSNumberFormatter *formater = [[NSNumberFormatter alloc] init];
@@ -35,7 +55,7 @@
             
             self.nome = [[response objectForKey:@"nomeProposicao"] objectForKey:@"text"];
             
-            self.sigla = [[response objectForKey:@"tipo"] stringByReplacingOccurrencesOfString:@" " withString:@""]; //remove space
+            self.sigla = [[response objectForKey:@"tipo"] stringByReplacingOccurrencesOfString:@" " withString:@""]; //remove spaces
             self.numero = [formater numberFromString:[response objectForKey:@"numero"]];
             self.ano = [formater numberFromString:[response objectForKey:@"ano"]];
             
@@ -57,7 +77,59 @@
     }];
 }
 
-- (void)loadFromServer:(void(^)(NSDictionary* response))completionHandler{
+
+
+#pragma MARK private functions
+
+- (void)loadVotacoesFromServer:(void(^)(NSArray* response))completionHandler{
+    
+    if ( self.sigla  == NULL  ||
+         self.numero == NULL  ||
+         self.ano    == NULL   ) {
+        return;
+    }
+    
+    NSString * numeroProposicao = [NSString stringWithFormat:@"%@", self.numero];
+    NSString * anoProposicao = [NSString stringWithFormat:@"%@", self.ano];
+
+    NSURL * urlRequest = [NSURL URLWithString:[CDURLManager obterVotacaoProposicaoPorTipo:self.sigla comNumero:numeroProposicao noAno:anoProposicao]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:urlRequest];
+    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
+    
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes =  [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/xml"];
+    
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        
+        //Parse XML Data to Dictionary
+        NSError *parseError = nil;
+        NSDictionary *xmlDictionary = [XMLReader dictionaryForXMLData:responseObject error:&parseError];
+        if (parseError != NULL) {
+            return;
+        }
+        
+        //Isolate the dictionary
+        NSArray *votacoes = [[[[xmlDictionary allValues] objectAtIndex:0] objectForKey:@"Votacoes"] allValues];
+        
+        /* In some cases, when the object was voted only once, at this level,
+         * it should have the vote data, but, if there was more *than one vote, a vote array should appear, there is probably a more
+         * elegant solution, but let test this one for now
+         */
+        if ([[votacoes objectAtIndex:0] isKindOfClass:[NSArray class]]){
+            votacoes = [votacoes objectAtIndex:0];
+        }
+    
+        completionHandler(votacoes);
+    }];
+    
+    [task resume];
+
+    
+}
+
+
+- (void)loadPreposicaoFromServer:(void(^)(NSDictionary* response))completionHandler{
     
     if ( self.idProposicao == NULL || completionHandler == NULL) {
         return;

@@ -35,6 +35,7 @@
 @property NSArray *votacoes;
 
 - (instancetype)initWithCodProposicao:(NSNumber*)codProposicao;
--(void)loadPreposicao:(void(^)(void))completionHandler;
+-(void)loadProposicao:(void(^)(void))completionHandler;
+-(void)loadVotacoes:(void(^)(void))completionHandler;
 
 @end

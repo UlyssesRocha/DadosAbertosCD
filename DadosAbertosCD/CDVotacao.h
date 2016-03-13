@@ -23,4 +23,6 @@
 
 @property NSArray *votoDeputados;
 
+- (instancetype)initWithDictionary:(NSDictionary*)dictionary;
+
 @end

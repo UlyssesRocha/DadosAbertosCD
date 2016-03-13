@@ -32,11 +32,12 @@
 //    }];
     
     
-    CDProposicao *testProposicao = [[CDProposicao alloc]initWithCodProposicao:[NSNumber numberWithInt:2077084]];
+    CDProposicao *testProposicao = [[CDProposicao alloc]initWithCodProposicao:[NSNumber numberWithInt:1738686]];
     
-    [testProposicao loadPreposicao:^{
-        NSLog(@"fim");
-
+    [testProposicao loadProposicao:^{
+        [testProposicao loadVotacoes:^{
+            NSLog(@"fim");
+        }];
     }];
     
     
