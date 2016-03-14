@@ -178,4 +178,54 @@
     [task resume];
 }
 
+
+
+#pragma MARK Class Methods
+
++(void)loadDistinctCodProposicoesVotedIn:(NSUInteger*)year withCompletionHandler:(void(^)(NSArray* response))completionHandler{
+    
+    [CDProposicao loadCodProposicoesVotedIn:year withCompletionHandler:^(NSArray *response) {
+        
+        NSSet* categories = [NSSet setWithArray:response ];
+
+        completionHandler([categories allObjects]);
+    }];
+}
+
+
+
++(void)loadCodProposicoesVotedIn:(NSUInteger*)year withCompletionHandler:(void(^)(NSArray* response))completionHandler{
+    
+    if ( year == NULL || completionHandler == NULL) {
+        return;
+    }
+    
+    NSString * ano = [NSString stringWithFormat:@"%tu", year];
+    NSURL * urlRequest = [NSURL URLWithString:[CDURLManager listarProposicoesVotadasEmPlenarioNoAno:ano comTipo:@""]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:urlRequest];
+    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
+    
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes =  [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/xml"];
+    
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        
+        //Parse XML Data to Dictionary
+        NSError *parseError = nil;
+        NSDictionary *xmlDictionary = [XMLReader dictionaryForXMLData:responseObject error:&parseError];
+        if (parseError != NULL) {
+            return;
+        }
+        
+        //Isolate the dictionary
+        NSArray *contentDictionary = [[[[[xmlDictionary allValues] objectAtIndex:0]valueForKey:@"proposicao"] valueForKey: @"codProposicao"] valueForKey:@"text"];
+        
+        completionHandler(contentDictionary );
+    }];
+    
+    [task resume];
+}
+
+
 @end

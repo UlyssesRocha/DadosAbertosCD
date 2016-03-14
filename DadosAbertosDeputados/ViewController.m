@@ -21,7 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+        
+    
 //    UIImageView *testImageView;
 //    [CDDeputado loadDeputados:^(NSArray *response) {
 //        NSLog(@"%@",((CDDeputado *)[response objectAtIndex:0]).nomeParlamentar);
@@ -51,6 +53,14 @@
     
     
     
+    [CDProposicao loadCodProposicoesVotedIn:2016 withCompletionHandler:^(NSArray *response) {
+        NSLog(@"%@",response);
+    }];
+    
+    
+    [CDProposicao loadDistinctCodProposicoesVotedIn:2016 withCompletionHandler:^(NSArray *response) {
+        NSLog(@"%@",response);
+    }];
     
 }
 

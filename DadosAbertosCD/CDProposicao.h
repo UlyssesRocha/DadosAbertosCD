@@ -33,11 +33,14 @@
 @property NSNumber *idAutor;
 @property NSString *nomeAutor;
 
-
 @property NSArray *votacoes;
 
 - (instancetype)initWithCodProposicao:(NSNumber*)codProposicao;
 -(void)loadProposicao:(void(^)(void))completionHandler;
 -(void)loadVotacoes:(void(^)(void))completionHandler;
+
+
++(void)loadDistinctCodProposicoesVotedIn:(NSUInteger*)year withCompletionHandler:(void(^)(NSArray* response))completionHandler;
++(void)loadCodProposicoesVotedIn:(NSUInteger*)year withCompletionHandler:(void(^)(NSArray* response))completionHandler;
 
 @end
